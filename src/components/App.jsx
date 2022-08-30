@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
 function App() {
+  
   const [listItem, setListItem] = useState("");
 
-  function handleClick(event) {
-    setListItem(listItem);
+  function handleChange(event) {
+    const newValue = event.target.value;
+    setListItem(newValue);
   }
 
   return (
@@ -13,15 +15,15 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" />
-        <button onClick={handleClick}>
+        <input onChange={handleChange} type="text" value={listItem}/>
+        <button>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
           <li>A Item</li>
-          <li name="listItem">{listItem}</li>
+          <li></li>
         </ul>
       </div>
     </div>
